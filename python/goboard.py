@@ -7,6 +7,12 @@
 import numpy as np
 
 
+# In[ ]:
+
+
+
+
+
 # In[2]:
 
 
@@ -78,7 +84,7 @@ class Point():
     __repr__ = __str__
 
 
-# In[7]:
+# In[38]:
 
 
 class Board():
@@ -96,6 +102,7 @@ class Board():
     def set_point(self, row, col, color):
         index = row* self.row_max+col
         self.point_list[index].color=color
+        self.set_all_point()
 
     def set_all_point(self):
         for i in range(2): # somthing magic, I don't know why twice
@@ -122,9 +129,10 @@ class Board():
                 else:
                     pass
             print()
+        print("............")
 
 
-# In[8]:
+# In[39]:
 
 
 class Piece_group():
@@ -142,31 +150,50 @@ class Piece_group():
     __repr__ = __str__
 
 
-# In[13]:
+# In[42]:
 
 
 board=Board(N,N)
 board.set_point(0,0,-1)
-board.set_point(0,1,1)
 board.set_point(1,0,1)
 board.set_point(1,1,-1)
 
+board.set_all_point()
 board.display(type="color")
-print("------")
-board.display(type="self_qi")
-print("------")
 board.display(type="group_qi")
+print()
+
+board.set_point(0,1,1)
+board.set_all_point()
+board.display(type="color")
+board.display(type="group_qi")
+print()
 
 board.set_all_point()
-
 board.display(type="color")
-print("------")
-board.display(type="self_qi")
-print("------")
 board.display(type="group_qi")
 
 
-# In[ ]:
+# In[43]:
+
+
+p0=board.get_point(0,0)
+p1=board.get_point(0,1)
+
+
+# In[44]:
+
+
+p1.belong_group.group_qi
+
+
+# In[47]:
+
+
+p0.belong_group
+
+
+# In[46]:
 
 
 
